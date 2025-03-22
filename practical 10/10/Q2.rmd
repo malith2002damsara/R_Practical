@@ -1,0 +1,73 @@
+---
+jupyter:
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+  language_info:
+    codemirror_mode: r
+    file_extension: .r
+    mimetype: text/x-r-source
+    name: R
+    pygments_lexer: r
+    version: 4.4.2
+  nbformat: 4
+  nbformat_minor: 5
+---
+
+::: {#0f4d0a52-d148-4387-93d8-2ab40c778c2f .cell .code execution_count="1"}
+``` R
+dataset <- read.csv("melb_data.csv")
+```
+:::
+
+::: {#9484e455-61fa-4921-a346-6ba42ed9bd11 .cell .code execution_count="2"}
+``` R
+head(dataset)
+```
+
+::: {.output .display_data}
+
+A data.frame: 6 × 21
+
+| <!--/--> | Suburb &lt;chr&gt; | Address &lt;chr&gt; | Rooms &lt;int&gt; | Type &lt;chr&gt; | Price &lt;dbl&gt; | Method &lt;chr&gt; | SellerG &lt;chr&gt; | Date &lt;chr&gt; | Distance &lt;dbl&gt; | Postcode &lt;dbl&gt; | ⋯ ⋯ | Bathroom &lt;dbl&gt; | Car &lt;dbl&gt; | Landsize &lt;dbl&gt; | BuildingArea &lt;dbl&gt; | YearBuilt &lt;dbl&gt; | CouncilArea &lt;chr&gt; | Lattitude &lt;dbl&gt; | Longtitude &lt;dbl&gt; | Regionname &lt;chr&gt; | Propertycount &lt;dbl&gt; |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Abbotsford | 85 Turner St     | 2 | h | 1480000 | S  | Biggin | 3/12/2016 | 2.5 | 3067 | ⋯ | 1 | 1 | 202 |  NA |   NA | Yarra | -37.7996 | 144.9984 | Northern Metropolitan | 4019 |
+| 2 | Abbotsford | 25 Bloomburg St  | 2 | h | 1035000 | S  | Biggin | 4/02/2016 | 2.5 | 3067 | ⋯ | 1 | 0 | 156 |  79 | 1900 | Yarra | -37.8079 | 144.9934 | Northern Metropolitan | 4019 |
+| 3 | Abbotsford | 5 Charles St     | 3 | h | 1465000 | SP | Biggin | 4/03/2017 | 2.5 | 3067 | ⋯ | 2 | 0 | 134 | 150 | 1900 | Yarra | -37.8093 | 144.9944 | Northern Metropolitan | 4019 |
+| 4 | Abbotsford | 40 Federation La | 3 | h |  850000 | PI | Biggin | 4/03/2017 | 2.5 | 3067 | ⋯ | 2 | 1 |  94 |  NA |   NA | Yarra | -37.7969 | 144.9969 | Northern Metropolitan | 4019 |
+| 5 | Abbotsford | 55a Park St      | 4 | h | 1600000 | VB | Nelson | 4/06/2016 | 2.5 | 3067 | ⋯ | 1 | 2 | 120 | 142 | 2014 | Yarra | -37.8072 | 144.9941 | Northern Metropolitan | 4019 |
+| 6 | Abbotsford | 129 Charles St   | 2 | h |  941000 | S  | Jellis | 7/05/2016 | 2.5 | 3067 | ⋯ | 1 | 0 | 181 |  NA |   NA | Yarra | -37.8041 | 144.9953 | Northern Metropolitan | 4019 |
+:::
+:::
+
+::: {#936f6386-11a6-4ccf-a981-8eaa7b27aca2 .cell .code execution_count="3"}
+``` R
+missing_values <- colSums(is.na(dataset))
+print(missing_values)
+```
+
+::: {.output .stream .stdout}
+           Suburb       Address         Rooms          Type         Price 
+                0             0             0             0             0 
+           Method       SellerG          Date      Distance      Postcode 
+                0             0             0             0             0 
+         Bedroom2      Bathroom           Car      Landsize  BuildingArea 
+                0             0            62             0          6450 
+        YearBuilt   CouncilArea     Lattitude    Longtitude    Regionname 
+             5375             0             0             0             0 
+    Propertycount 
+                0 
+:::
+:::
+
+::: {#f27dc5cf-8a51-4aef-b457-3da12114a6ed .cell .code execution_count="4"}
+``` R
+mean_year_built <- mean(dataset$YearBuilt, na.rm = TRUE)
+print(mean_year_built)
+```
+
+::: {.output .stream .stdout}
+    [1] 1964.684
+:::
+:::

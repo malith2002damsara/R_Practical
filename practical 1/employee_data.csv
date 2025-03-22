@@ -1,0 +1,51 @@
+"EmployeeID","Gender","Age","JobPosition","Salary","Department","Bonus","YearsOfExperience","PerformanceRating","RemoteEligibility","TotalCompensation"
+"E1001","Female",34,"System Administrator",125000,"IT",13000,1,3,"Eligible",138000
+"E1002","Male",33,"Project Manager",105000,"Finance",17000,8,2,"Not Eligible",122000
+"E1003","Female",31,"System Administrator",120000,"HR",14000,14,2,"Eligible",134000
+"E1004","Male",37,"System Administrator",2e+05,"Marketing",16000,15,2,"Eligible",216000
+"E1005","Male",36,"System Administrator",170000,"IT",10000,4,3,"Not Eligible",180000
+"E1006","Female",33,"Software Engineer",160000,"Finance",10000,11,3,"Eligible",170000
+"E1007","Male",32,"Software Engineer",130000,"Marketing",19000,9,5,"Eligible",149000
+"E1008","Male",37,"Project Manager",150000,"HR",19000,7,3,"Not Eligible",169000
+"E1009","Female",35,"Data Analyst",135000,"IT",17000,15,4,"Eligible",152000
+"E1010","Male",31,"Data Analyst",130000,"Finance",14000,2,1,"Eligible",144000
+"E1011","Male",35,"System Administrator",125000,"HR",12000,14,1,"Not Eligible",137000
+"E1012","Female",34,"System Administrator",140000,"HR",15000,1,5,"Eligible",155000
+"E1013","Male",30,"Software Engineer",180000,"Finance",7000,6,3,"Not Eligible",187000
+"E1014","Male",38,"Project Manager",1e+05,"Finance",14000,8,4,"Eligible",114000
+"E1015","Male",34,"Software Engineer",115000,"HR",19000,3,4,"Eligible",134000
+"E1016","Male",34,"Project Manager",135000,"Marketing",12000,2,4,"Eligible",147000
+"E1017","Male",39,"Project Manager",140000,"Marketing",6000,11,1,"Eligible",146000
+"E1018","Male",36,"System Administrator",140000,"HR",16000,5,2,"Not Eligible",156000
+"E1019","Male",34,"Project Manager",110000,"Finance",14000,6,4,"Eligible",124000
+"E1020","Male",26,"Project Manager",105000,"Finance",5000,6,5,"Eligible",110000
+"E1021","Female",30,"Data Analyst",115000,"Finance",5000,12,4,"Eligible",120000
+"E1022","Male",33,"Data Analyst",125000,"Marketing",19000,3,2,"Not Eligible",144000
+"E1023","Male",39,"Software Engineer",130000,"IT",11000,15,4,"Not Eligible",141000
+"E1024","Male",27,"Data Analyst",2e+05,"Finance",5000,9,5,"Not Eligible",205000
+"E1025","Female",28,"Project Manager",155000,"Finance",19000,8,3,"Not Eligible",174000
+"E1026","Female",28,"Software Engineer",105000,"Marketing",6000,14,2,"Eligible",111000
+"E1027","Male",31,"Software Engineer",195000,"IT",13000,7,3,"Not Eligible",208000
+"E1028","Male",31,"Software Engineer",155000,"HR",5000,7,4,"Not Eligible",160000
+"E1029","Male",29,"Project Manager",190000,"IT",13000,14,1,"Eligible",203000
+"E1030","Male",38,"System Administrator",175000,"Marketing",20000,12,2,"Eligible",195000
+"E1031","Male",35,"Project Manager",115000,"Finance",8000,14,5,"Not Eligible",123000
+"E1032","Male",30,"System Administrator",2e+05,"IT",12000,9,1,"Eligible",212000
+"E1033","Female",30,"System Administrator",2e+05,"IT",10000,4,2,"Not Eligible",210000
+"E1034","Male",28,"Data Analyst",185000,"IT",15000,7,4,"Eligible",2e+05
+"E1035","Male",34,"Data Analyst",110000,"IT",9000,5,3,"Eligible",119000
+"E1036","Male",32,"Project Manager",155000,"HR",18000,7,5,"Eligible",173000
+"E1037","Female",40,"Project Manager",165000,"HR",12000,12,3,"Eligible",177000
+"E1038","Male",38,"Software Engineer",120000,"Finance",16000,10,4,"Not Eligible",136000
+"E1039","Male",37,"System Administrator",1e+05,"Finance",20000,7,3,"Eligible",120000
+"E1040","Male",29,"Software Engineer",190000,"HR",18000,8,2,"Eligible",208000
+"E1041","Female",39,"Data Analyst",115000,"HR",12000,15,2,"Eligible",127000
+"E1042","Male",33,"Project Manager",190000,"HR",8000,1,5,"Eligible",198000
+"E1043","Male",28,"Project Manager",2e+05,"Finance",7000,12,3,"Eligible",207000
+"E1044","Male",27,"Data Analyst",145000,"HR",20000,7,2,"Eligible",165000
+"E1045","Male",26,"Data Analyst",165000,"HR",16000,12,4,"Not Eligible",181000
+"E1046","Male",28,"System Administrator",180000,"IT",17000,1,4,"Eligible",197000
+"E1047","Male",33,"Project Manager",2e+05,"HR",10000,3,4,"Eligible",210000
+"E1048","Male",27,"Software Engineer",145000,"IT",10000,9,4,"Eligible",155000
+"E1049","Male",25,"Project Manager",2e+05,"Marketing",8000,15,2,"Not Eligible",208000
+"E1050","Male",38,"Data Analyst",185000,"Finance",12000,8,4,"Not Eligible",197000

@@ -1,0 +1,121 @@
+# Activity 01
+
+#  01
+
+if (file.exists("heart.csv")) {
+  heart_data <- read.csv("C:/Users/damsara/Desktop/lab/heart.csv")
+  cat("Dataset loaded\n")
+} else {
+  stop("Error: 'heart.csv' file not found in the working directory. Please check the file path.")
+}
+
+# 02
+
+num_records <- nrow(heart_data)
+cat("records:", num_records, "\n")
+
+# 03
+
+summary_restingBP <- summary(heart_data$RestingBP)
+cat("Summary :\n")
+print(summary_restingBP)
+
+# 04
+
+mean_restingBP <- mean(heart_data$RestingBP)
+higher_than_mean <- sum(heart_data$RestingBP > mean_restingBP)
+cat("Number of patients with higher than mean RestingBP:", higher_than_mean, "\n")
+
+# 05
+
+unique_chest_pain <- unique(heart_data$ChestPainType)
+cat("Unique Chest Pain :\n")
+print(unique_chest_pain)
+
+# 06
+
+females_high_bp <- heart_data[heart_data$Sex == "F" & heart_data$RestingBP > 140, ]
+first_10_females <- females_high_bp[1:10, "Age"]
+print(first_10_females)
+
+# 07
+
+print_attributes <- function(row) {
+  cat("Patient Information:\n")
+  cat("Age:", row$Age, "\n")
+  cat("Sex:", row$Sex, "\n")
+  cat("ChestPainType:", row$ChestPainType, "\n")
+  cat("RestingBP:", row$RestingBP, "\n")
+  cat("Cholesterol:", row$Cholesterol, "\n")
+  cat("FastingBS:", row$FastingBS, "\n")
+  cat("RestingECG:", row$RestingECG, "\n")
+  cat("MaxHR:", row$MaxHR, "\n")
+  cat("ExerciseAngina:", row$ExerciseAngina, "\n")
+  cat("Oldpeak:", row$Oldpeak, "\n")
+  cat("ST_Slope:", row$ST_Slope, "\n")
+
+  if (row$Cholesterol < 200) {
+    cat("Cholesterol Level: Low\n")
+  } else {
+    cat("Cholesterol Level: High\n")
+  }
+}
+
+cat("\nExample output for the first row in the dataset:\n")
+print_attributes(heart_data[1, ])
+
+
+
+#*******************************************************************************************************
+
+
+
+# Activity 02
+
+city_data <- data.frame(
+  City = c("Colombo", "Kandy", "Galle", "Anuradhapura", "Trincomalee", "Jaffna"),
+  Population = c(580000, 450000, 330000, 380000, 280000, 310000)
+)
+
+colors <- rainbow(nrow(city_data))
+
+
+percentages <- round(city_data$Population / sum(city_data$Population) * 100, 1)
+labels <- paste0(percentages, "%") 
+
+
+
+pie(
+  city_data$Population,             
+  labels = labels,                  
+  col = colors,                     
+  main = "City Population"       
+)
+
+
+legend(
+  "topright",                 
+  legend = city_data$City,
+  fill = colors       
+)
+
+
+#*******************************************************************************************************
+
+# Activity 03
+
+years <- c(2015, 2016, 2017, 2018, 2019)
+income <- c(1320000, 1500000, 2002000, 1980000, 1520000)
+
+barplot(income, 
+        names.arg = years, 
+        xlab = "Year", 
+        ylab = "Yearly Income", 
+        main = "Income",
+        col = "red",      
+        border = "blue",   
+        ylim = c(0, max(income) * 1.1)
+)
+box()
+
+

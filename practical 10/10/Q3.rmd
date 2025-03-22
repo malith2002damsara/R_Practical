@@ -1,0 +1,79 @@
+---
+jupyter:
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+  language_info:
+    codemirror_mode: r
+    file_extension: .r
+    mimetype: text/x-r-source
+    name: R
+    pygments_lexer: r
+    version: 4.4.2
+  nbformat: 4
+  nbformat_minor: 5
+---
+
+::: {#a1af3ed8-bc42-4754-b0ef-6914718ef8d7 .cell .code execution_count="1"}
+``` R
+emp_sal <- data.frame(
+  Emp_ID = c(11, 12, 13, 14, 15),
+  Dep = c("Sales", "HR", "Sales", "HR", "Sales"),
+  Basic = c(25450, 22500, 21000, 23500, 15000),
+  Allowances = c(5200, 4500, 3100, 2600, 1800)
+)
+```
+:::
+
+::: {#526aebb5-6710-4df9-ac37-322753d1d687 .cell .code execution_count="2"}
+``` R
+print(emp_sal)
+```
+
+::: {.output .stream .stdout}
+      Emp_ID   Dep Basic Allowances
+    1     11 Sales 25450       5200
+    2     12    HR 22500       4500
+    3     13 Sales 21000       3100
+    4     14    HR 23500       2600
+    5     15 Sales 15000       1800
+:::
+:::
+
+::: {#33a67720-dd51-431c-83ea-8c363bb1d064 .cell .code execution_count="3"}
+``` R
+emp_sal$net_sal <- emp_sal$Basic + emp_sal$Allowances
+```
+:::
+
+::: {#be3ab811-6629-4c20-8911-cbdc9af568cc .cell .code execution_count="4"}
+``` R
+print(emp_sal)
+```
+
+::: {.output .stream .stdout}
+      Emp_ID   Dep Basic Allowances net_sal
+    1     11 Sales 25450       5200   30650
+    2     12    HR 22500       4500   27000
+    3     13 Sales 21000       3100   24100
+    4     14    HR 23500       2600   26100
+    5     15 Sales 15000       1800   16800
+:::
+:::
+
+::: {#4b4be179-0054-4505-b264-de6de68966ec .cell .code execution_count="5"}
+``` R
+sales_net_salaries <- emp_sal$net_sal[emp_sal$Dep == "Sales"]
+print(sales_net_salaries)
+```
+
+::: {.output .stream .stdout}
+    [1] 30650 24100 16800
+:::
+:::
+
+::: {#f7428978-9315-4eb1-ace1-cc06e91c7714 .cell .code}
+``` R
+```
+:::

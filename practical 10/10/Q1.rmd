@@ -1,0 +1,224 @@
+---
+jupyter:
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+  language_info:
+    codemirror_mode: r
+    file_extension: .r
+    mimetype: text/x-r-source
+    name: R
+    pygments_lexer: r
+    version: 4.4.2
+  nbformat: 4
+  nbformat_minor: 5
+---
+
+::: {#20341a45-e453-428a-bf16-4cbb9c075d96 .cell .code execution_count="1"}
+``` R
+dataset <- read.csv("Student Performance new.csv")
+```
+:::
+
+::: {#a76eaf23-e864-47a8-ae5b-089efb5a22a0 .cell .code}
+``` R
+print(dataset)
+```
+:::
+
+::: {#47b9d942-26e3-4a37-b563-ac645c1c457e .cell .code execution_count="3"}
+``` R
+colnames(dataset) <- c("id", "race", "edu", "lunch", "prep", "math", "read", "write", "gen")
+```
+:::
+
+::: {#bd4099df-66df-45b8-8bbd-cc23f5ee53da .cell .code}
+``` R
+print(dataset)
+```
+:::
+
+::: {#4d3996db-d7a1-44b7-909a-bbe5df06e6dd .cell .code execution_count="5"}
+``` R
+dataset$math <- dataset$math * 100
+dataset$read <- dataset$read * 100
+dataset$write <- dataset$write * 100
+```
+:::
+
+::: {#d16dd64a-85b2-4bda-b314-f76a571ba141 .cell .code execution_count="8"}
+``` R
+dataset$average <- rowMeans(dataset[,c("math", "read", "write")])
+```
+:::
+
+::: {#0fc3e759-68ec-4b7f-b036-d167488eb249 .cell .code}
+``` R
+print(dataset)
+```
+:::
+
+::: {#d0b4668b-697a-451a-94f6-c2c93715307d .cell .code execution_count="11"}
+``` R
+summary(dataset$math)
+```
+
+::: {.output .display_data}
+       Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+       0.00   57.00   66.00   66.09   77.00  100.00 
+:::
+:::
+
+::: {#55f9015c-321e-402f-b7b8-4573ace656d5 .cell .code execution_count="12"}
+``` R
+summary(dataset$read)
+```
+
+::: {.output .display_data}
+       Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      17.00   59.00   70.00   69.17   79.00  100.00 
+:::
+:::
+
+::: {#5e76f7ef-8eff-4dca-a320-d5b5990ab34e .cell .code execution_count="13"}
+``` R
+summary(dataset$write)
+```
+
+::: {.output .display_data}
+       Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+      10.00   57.75   69.00   68.05   79.00  100.00 
+:::
+:::
+
+::: {#42a4b787-074b-4a6e-9712-b3a8d7c9b06a .cell .code execution_count="17"}
+``` R
+unique_race <- unique(dataset$race)
+print(unique_race)
+```
+
+::: {.output .stream .stdout}
+    [1] "group B" "group C" "group A" "group D" "group E"
+:::
+:::
+
+::: {#008fc996-d891-44b4-ad98-a408b979ce0c .cell .code execution_count="18"}
+``` R
+unique_edu <- unique(dataset$edu)
+print(unique_edu)
+```
+
+::: {.output .stream .stdout}
+    [1] "bachelor's degree"  "some college"       "master's degree"   
+    [4] "associate's degree" "high school"        "some high school"  
+:::
+:::
+
+::: {#af465eb2-1879-4433-883a-9050000df5b0 .cell .code execution_count="19"}
+``` R
+unique_lunch <- unique(dataset$lunch)
+print(unique_lunch)
+```
+
+::: {.output .stream .stdout}
+    [1] "standard"     "free/reduced"
+:::
+:::
+
+::: {#ae8f7367-ec07-47c3-aa31-2237b0b0eb56 .cell .code execution_count="20"}
+``` R
+unique_prep <- unique(dataset$prep)
+print(unique_prep)
+```
+
+::: {.output .stream .stdout}
+    [1] "none"      "completed"
+:::
+:::
+
+::: {#c03b1ba8-3044-44a1-aaf8-61ec959b7496 .cell .code execution_count="21"}
+``` R
+unique_gen <- unique(dataset$gen)
+print(unique_gen)
+```
+
+::: {.output .stream .stdout}
+    [1] "F" "M"
+:::
+:::
+
+::: {#ed9fc43d-170f-4e7a-8cd8-496bfa94b277 .cell .code execution_count="25"}
+``` R
+average_by_race <- aggregate(cbind(math, read, write) ~ race, data = dataset, FUN = mean)
+print(average_by_race)
+```
+
+::: {.output .stream .stdout}
+         race     math     read    write
+    1 group A 61.62921 64.67416 62.67416
+    2 group B 63.45263 67.35263 65.60000
+    3 group C 64.46395 69.10345 67.82759
+    4 group D 67.36260 70.03053 70.14504
+    5 group E 73.82143 73.02857 71.40714
+:::
+:::
+
+::: {#9f10c82b-c403-40a1-81a5-cb3f28ee37d9 .cell .code execution_count="26"}
+``` R
+average_by_edu <- aggregate(cbind(math, read, write) ~ edu, data = dataset, FUN = mean)
+print(average_by_edu)
+```
+
+::: {.output .stream .stdout}
+                     edu     math     read    write
+    1 associate's degree 67.88288 70.92793 69.89640
+    2  bachelor's degree 69.38983 73.00000 73.38136
+    3        high school 62.13776 64.70408 62.44898
+    4    master's degree 69.74576 75.37288 75.67797
+    5       some college 67.12832 69.46018 68.84071
+    6   some high school 63.49721 66.93855 64.88827
+:::
+:::
+
+::: {#9b45f2b6-fe8d-4b8e-ae22-d3c5837a5f74 .cell .code execution_count="27"}
+``` R
+average_by_lunch <- aggregate(cbind(math, read, write) ~ lunch, data = dataset, FUN = mean)
+print(average_by_race)
+```
+
+::: {.output .stream .stdout}
+         race     math     read    write
+    1 group A 61.62921 64.67416 62.67416
+    2 group B 63.45263 67.35263 65.60000
+    3 group C 64.46395 69.10345 67.82759
+    4 group D 67.36260 70.03053 70.14504
+    5 group E 73.82143 73.02857 71.40714
+:::
+:::
+
+::: {#f8226977-a58b-420d-9dd0-ce750a22d39d .cell .code execution_count="28"}
+``` R
+average_by_prep <- aggregate(cbind(math, read, write) ~ prep, data = dataset, FUN = mean)
+print(average_by_prep)
+```
+
+::: {.output .stream .stdout}
+           prep     math     read    write
+    1 completed 69.69553 73.89385 74.41899
+    2      none 64.07788 66.53427 64.50467
+:::
+:::
+
+::: {#d8376311-3a6c-4a5f-b14a-d8be47cbae70 .cell .code execution_count="29"}
+``` R
+average_by_gen <- aggregate(cbind(math, read, write) ~ gen, data = dataset, FUN = mean)
+print(average_by_gen)
+```
+
+::: {.output .stream .stdout}
+      gen     math     read    write
+    1   F 63.63320 72.60811 72.46718
+    2   M 68.72822 65.47303 63.31120
+:::
+:::
